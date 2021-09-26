@@ -1,8 +1,8 @@
 package com.zhuravishkin.springregistrydesignpattern.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhuravishkin.springregistrydesignpattern.model.Body;
-import com.zhuravishkin.springregistrydesignpattern.model.Data;
+import com.zhuravishkin.springregistrydesignpattern.model.RequestData;
+import com.zhuravishkin.springregistrydesignpattern.model.Subscriber;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,24 +21,24 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class CatServiceTest {
+class SubscriberServiceTest {
     @SpyBean
-    CatService catService;
+    SubscriberService subscriberService;
 
     @MockBean
     DBService dbService;
 
-    Body body;
+    RequestData requestData;
 
     @BeforeEach
     void setUp() throws IOException {
         String string = Files.readString(Paths.get("src/test/resources/body.json"));
-        body = new ObjectMapper().readValue(string, Body.class);
+        requestData = new ObjectMapper().readValue(string, RequestData.class);
     }
 
     @Test
     void unloadingFromDB() {
-        when(dbService.getResultFromDB(any(Body.class))).thenReturn(Data.builder().build());
-        assertNotNull(catService.unloadingFromDB(body));
+        when(dbService.getResultFromDB(any(RequestData.class))).thenReturn(Subscriber.builder().build());
+        assertNotNull(subscriberService.unloadingFromDB(requestData));
     }
 }

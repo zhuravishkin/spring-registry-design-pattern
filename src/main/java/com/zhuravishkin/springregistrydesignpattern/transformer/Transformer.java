@@ -1,12 +1,12 @@
 package com.zhuravishkin.springregistrydesignpattern.transformer;
 
-import com.zhuravishkin.springregistrydesignpattern.model.Body;
-import com.zhuravishkin.springregistrydesignpattern.model.Data;
+import com.zhuravishkin.springregistrydesignpattern.model.RequestData;
+import com.zhuravishkin.springregistrydesignpattern.model.Subscriber;
 import com.zhuravishkin.springregistrydesignpattern.registry.Registry;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public interface Transformer {
-    Data transform(Body body);
+    Subscriber transform(RequestData requestData);
 
     int transformerId();
 

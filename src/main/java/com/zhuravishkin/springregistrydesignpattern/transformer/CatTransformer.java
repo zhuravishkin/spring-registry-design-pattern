@@ -1,7 +1,7 @@
 package com.zhuravishkin.springregistrydesignpattern.transformer;
 
-import com.zhuravishkin.springregistrydesignpattern.model.Body;
-import com.zhuravishkin.springregistrydesignpattern.model.Data;
+import com.zhuravishkin.springregistrydesignpattern.model.RequestData;
+import com.zhuravishkin.springregistrydesignpattern.model.Subscriber;
 import com.zhuravishkin.springregistrydesignpattern.service.DBService;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +14,8 @@ public class CatTransformer implements Transformer {
     }
 
     @Override
-    public Data transform(Body body) {
-        return dbService.getResultFromDB(body);
+    public Subscriber transform(RequestData requestData) {
+        return dbService.getResultFromDB(requestData);
     }
 
     @Override

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter
-public class Body {
+public class RequestData {
     @JsonProperty("phone_number")
     private String phoneNumber;
 

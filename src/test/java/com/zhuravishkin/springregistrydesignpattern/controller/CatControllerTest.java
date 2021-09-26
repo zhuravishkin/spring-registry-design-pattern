@@ -1,6 +1,6 @@
 package com.zhuravishkin.springregistrydesignpattern.controller;
 
-import com.zhuravishkin.springregistrydesignpattern.service.CatService;
+import com.zhuravishkin.springregistrydesignpattern.service.SubscriberService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ class CatControllerTest {
     CatController catController;
 
     @MockBean
-    CatService catService;
+    SubscriberService subscriberService;
 
     @Test
     void postCats() throws Exception {
